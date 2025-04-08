@@ -15,6 +15,9 @@
 import m from 'mithril';
 import {AggregationPanel, AggregationPanelAttrs} from './aggregation_panel';
 import {
+  WattsonAggregationPanel
+} from '../plugins/org.kernel.Wattson/aggregation_panel';
+import {
   AreaSelection,
   AreaSelectionAggregator,
   areaSelectionsEqual,
@@ -79,4 +82,13 @@ export function createAggregationToTabAdaptor(
   aggregator: AreaSelectionAggregator
 ): AreaSelectionTab {
   return createBaseAggregationToTabAdaptor(trace, aggregator, AggregationPanel);
+}
+
+export function createWattsonAggregationToTabAdaptor(
+  trace: Trace,
+  aggregator: AreaSelectionAggregator
+): AreaSelectionTab {
+  return createBaseAggregationToTabAdaptor(
+    trace, aggregator, WattsonAggregationPanel
+  );
 }
